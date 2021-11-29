@@ -36,8 +36,10 @@ public class TopicsService {
 
     public void updateTopic(Topic topicUpdate) {
         Topic t = topicList.stream().filter(topic ->topic.getId().equals(topicUpdate.getId())).findFirst().get();
-        topicList.remove(t);
-        topicList.add(topicUpdate);
+        if(t!=null){
+            topicList.remove(t);
+            topicList.add(topicUpdate);
+        }
     }
 
     public void updateTopicFields(Topic topicUpdate) {
